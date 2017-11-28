@@ -12,11 +12,14 @@ namespace hw7_currencyExchange
         {
             currency c1 = new currency(0.751, "pound sterling");
             currency c2 = new currency(0.845, "euro");
-            cur_converter converter = new cur_converter();
-            Console.WriteLine("{0:f3}",converter.convert(c1, c2));
+
+            CurConverter converter = new CurConverter();
+            Console.WriteLine("{0:f3}",converter.Convert(c1, c2));
+
             currency c3 = new currency(58.42, "rubl");
             currency c4 = new currency(329.23, "tenge");
-            Console.WriteLine("{0:f3}", converter.convert(c3, c4,100));
+
+            Console.WriteLine("{0:f3}", converter.Convert(c3, c4,100));
         }
     }
 }

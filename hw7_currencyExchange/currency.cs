@@ -8,38 +8,29 @@ namespace hw7_currencyExchange
 {
     class currency
     {
-        private string name;
-        public string  Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        private double toDollar;
-        public double ToDollar
-        {
-            get { return toDollar; }
-            set { toDollar = value; }
-        }
-        public currency(double toDollar):this(toDollar,"noname")
-        {
-            this.ToDollar = toDollar;
-        }
+        public string Name { get; set; }
+        public double ToDollar { get; set; }
+
+        public currency(double toDollar):this(toDollar,"noname"){}
         public currency(double toDollar,string name)
         {
-            this.ToDollar = toDollar;
-            this.Name = name;
+            ToDollar = toDollar;
+            Name = name;
         }
-        public void printCurInfo()
+
+        public void PrintCurInfo()
         {
             Console.WriteLine("Name: {0:f3}, To 1 dollar {1:f3}",this.Name,this.ToDollar);
         }
+
         public static bool operator ==(currency c1, currency c2)
         {
-            return c1.toDollar == c2.ToDollar;
+            return c2 != null && (c1 != null && c1.ToDollar == c2.ToDollar);
         }
+
         public static bool operator !=(currency c1, currency c2)
         {
-            return c1.toDollar != c2.ToDollar;
+            return c2 != null && (c1 != null && c1.ToDollar != c2.ToDollar);
         }
     }
 }
